@@ -1,0 +1,19 @@
+{
+  "name": "cantarutti/lockbox",
+  "autoload": {
+    "psr-4": {
+      "Core\\": "Core/",
+      "App\\": "App/"
+    },
+    "files": [
+      "./Core/functions.php"
+    ]
+  },
+  "authors": [
+    {
+      "name": "Marcos Cantarutti",
+      "email": "marcossandim21@gmail.com"
+    }
+  ],
+  "require": {}
+}
