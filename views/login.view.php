@@ -2,22 +2,13 @@
 $validacoes = flash()->get('validacoes');
 ?>
 <div class="grid grid-cols-2">
-    <div class="hero min-h-screen flex ml-40">
-        <div class="hero-content -mt-20">
-            <div>
-                <p class="py-2 text-xl">
-                    Bem vindo ao
-                </p>
-                <h1 class="text-6xl font-bold">LockBox</h1>
-                <p class="pt-2 pb-4 text-xl">
-                    onde você guarda <span class="italic">tudo</span> com segurança
-                </p>
-
-            </div>
+    <div class="bg-[url('./images/bg.png')] bg-cover bg-no-repeat min-h-screen w-full">
+        <div class="mt-20 ml-20">
+            <img src="./images/logo.svg" alt="LOGO">
         </div>
     </div>
 
-    <div class="hero mr-40 bg-white min-h-screen text-black">
+    <div class="hero mr-40 bg-zinc-900 min-h-screen text-white">
         <div class="hero-content -mt-20">
             <form action="/login" method="post">
                 <div class="card">
@@ -28,18 +19,18 @@ $validacoes = flash()->get('validacoes');
 
                         <label class="form-control">
                             <div class="label">
-                                <span class="label-text text-black">Email</span>
+                                <span class="label-text text-white">Email</span>
                             </div>
-                            <input type="email" placeholder="email" class="input input-bordered w-full max-w-xs bg-white" name="email" value="<?= old('email'); ?>" />
+                            <input type="email" placeholder="email" class="input input-bordered w-full max-w-xs bg-zinc-900" name="email" value="<?= old('email'); ?>" />
                         </label>
                         <?php if (isset($validacoes['email'])): ?>
                             <div class="label text-xs text-error"><?= $validacoes['email'][0]; ?></div>
                         <?php endif; ?>
                         <label class="form-control">
                             <div class="label">
-                                <span class="label-text text-black">Senha</span>
+                                <span class="label-text text-white">Senha</span>
                             </div>
-                            <input type="password" placeholder="password" class="input input-bordered w-full max-w-xs bg-white" name="password" />
+                            <input type="password" placeholder="password" class="input input-bordered w-full max-w-xs bg-zinc-900" name="password" />
                         </label>
                         <?php if (isset($validacoes['password'])): ?>
                             <div class="label text-xs text-error"><?= $validacoes['password'][0]; ?></div>
