@@ -17,8 +17,7 @@ class AtualizarController
                 'nome' => ['required'],
                 'observacao' => ['required'],
                 'telefone' => ['required'],
-                'email' => ['required', 'email', 'confirmed', 'unique:usuarios'],
-                'avatar' => ['required'],
+                'email' => ['required'],
                 'id' => ['required']
             ], $possoAtualizarOContato ? ['contato' => ['required']] : []),
             request()->all()
@@ -29,7 +28,15 @@ class AtualizarController
             return redirect('/contatos?id=' . request()->post('id'));
         }
 
-        Contato::update(request()->post('id'), request()->post('nome'), request()->post('observacao'), request()->post('telefone'), request()->post('email'), request()->post('avatar'));
+
+        $dir = "images/";
+        $name = md5(rand());
+        $extension = pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION);
+        $imagem = "$dir$name.$extension";
+
+        move_uploaded_file($_FILES['imagem']['tmp_name'], __DIR__ . '/../public/' . $imagem);
+
+        Contato::update(request()->post('id'), request()->post('nome'), request()->post('observacao'), request()->post('telefone'), request()->post('email'), $imagem);
 
         flash()->push('mensagem', "Registro atualizado com sucesso!!");
         return redirect('/contatos?id=' . request()->post('id'));

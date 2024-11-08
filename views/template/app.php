@@ -7,20 +7,19 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.13/dist/full.min.css" rel="stylesheet" type="text/css" />
 
-    <title>lockBox</title>
+    <title>Guard</title>
 </head>
 
-<body>
-    <div class="mx-auto max-w-screen-lg h-screen flex flex-col space-y-6">
+<body class="bg-zinc-900">
+    <div class="mx-auto max-w-screen-lg h-screen flex flex-col space-y-6 ">
         <?php require base_path('views/partials/_navbar.view.php'); ?>
 
         <?php require base_path('views/partials/_mensagem.view.php'); ?>
 
 
 
-        <div class="flex flex-grow pb-6">
+        <div class="bg-zinc-700 rounded flex flex-col p-10">
             <?php require base_path("views/{$view}.view.php"); ?>
-
         </div>
     </div>
 
