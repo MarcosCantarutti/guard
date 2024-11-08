@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Controller\Notas;
+namespace App\Controller\Contatos;
 
-use App\Models\Nota;
+use App\Models\Contato;
 use Core\Validacao;
 
 class DeleteController
@@ -16,11 +16,11 @@ class DeleteController
 
         if ($validacao->naoPassou()) {
             // se deu errado
-            return redirect('/notas?id=' . request()->post('id'));
+            return redirect('/contatos?id=' . request()->post('id'));
         }
-        Nota::delete(request()->post('id'));
+        Contato::delete(request()->post('id'));
 
         flash()->push('mensagem', "Registro deletado com sucesso!!");
-        return redirect('/notas');
+        return redirect('/contatos');
     }
 }
