@@ -8,8 +8,10 @@ use Core\Validacao;
 
 class IndexController
 {
+
     public function __invoke()
     {
+
         $contatos = Contato::all(filter: request()->get('pesquisar'));
 
         if (!$contatoSelecionado =  $this->getContatoSelecionado($contatos)) {
