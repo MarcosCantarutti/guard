@@ -4,12 +4,12 @@ $validacoes = flash()->get('validacoes');
 
 <div class="bg-base-300 rounded-l-box w-56">
     <div class="bg-base-200 p-4 rounded-tl-box">
-        + Nova Nota
+        + Novo contato
     </div>
 </div>
 
 <div class="bg-base-200 rounded-r-bow w-full p-10 ">
-    <form action="/notas/criar" method="post" class="flex flex-col space-y-6">
+    <form action="/contatos/criar" method="post" class="flex flex-col space-y-6">
         <label class="form-control w-full">
             <div class="label">
                 <span class="label-text">Título</span>

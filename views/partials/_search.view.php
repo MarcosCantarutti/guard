@@ -1,8 +1,8 @@
 <div class="flex space-x-4">
 
-    <form action="/notas" class="w-full">
+    <form action="/contatos" class="w-full">
         <label class="input input-bordered flex items-center gap-2 w-full">
-            <input type="text" name="pesquisar" class="grow" placeholder="Pesquisar notas no LockBox..."
+            <input type="text" name="pesquisar" class="grow" placeholder="Pesquisar contatos no Guard..."
                 value="<?= request()->get('pesquisar', '') ?>" />
             <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -17,5 +17,5 @@
         </label>
     </form>
 
-    <a href="/notas/criar" class="btn btn-primary"> + item</a>
+    <a href="/contatos/criar" class="btn btn-primary"> + item</a>
 </div>

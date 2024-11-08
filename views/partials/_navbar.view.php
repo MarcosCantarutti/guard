@@ -1,6 +1,6 @@
 <div class="navbar bg-base-100">
     <div class="flex-1">
-        <a href="/notas" class="btn btn-ghost text-xl">LockBox</a>
+        <a href="/contatos" class="btn btn-ghost text-xl">Guard</a>
     </div>
     <div class="flex-none">
         <ul class="menu menu-horizontal px-1">

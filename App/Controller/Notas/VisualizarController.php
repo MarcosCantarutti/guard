@@ -1,16 +1,15 @@
 <?php
 
-namespace App\Controller\Notas;
+namespace App\Controller\Contatos;
 
 use Core\Validacao;
-
 
 class VisualizarController
 {
 
     public function confirmar()
     {
-        return view('notas/confirmar');
+        return view('contatos/confirmar');
     }
     public function mostrar()
     {
@@ -21,22 +20,22 @@ class VisualizarController
 
 
         if ($validacao->naoPassou()) {
-            return view('notas/confirmar');
+            return view('contatos/confirmar');
         }
 
         if (!password_verify(request()->post('password'), auth()->password)) {
             flash()->push('validacoes', ['password' => ['senha está incorreta!']]);
-            return view('notas/confirmar');
+            return view('contatos/confirmar');
         }
 
 
         session()->set('mostrar', true);
-        return redirect('/notas');
+        return redirect('/contatos');
     }
 
     public function esconder()
     {
         session()->forget('mostrar');
-        return redirect('/notas');
+        return redirect('/contatos');
     }
 }

@@ -7,7 +7,7 @@ use App\Controller\LogoutController;
 use App\Controller\RegisterController;
 use App\Middlewares\AuthMiddleware;
 use App\Middlewares\GuestMiddleware;
-use App\Controller\Notas;
+use App\Controller\Contatos;
 
 (new Route())
     // não autenticado
@@ -18,14 +18,14 @@ use App\Controller\Notas;
     ->post('/registrar', [RegisterController::class, 'register'], GuestMiddleware::class)
     // autenticado
     ->get('/logout', LogoutController::class, AuthMiddleware::class)
-    ->get('/notas', Notas\IndexController::class, AuthMiddleware::class)
-    ->get('/notas/criar', [Notas\CriarController::class, 'index'], AuthMiddleware::class)
-    ->post('/notas/criar', [Notas\CriarController::class, 'store'], AuthMiddleware::class)
-    ->put('/nota', Notas\AtualizarController::class, AuthMiddleware::class)
-    ->delete('/nota', Notas\DeleteController::class, AuthMiddleware::class)
+    ->get('/contatos', Contatos\IndexController::class, AuthMiddleware::class)
+    ->get('/contatos/criar', [Contatos\CriarController::class, 'index'], AuthMiddleware::class)
+    ->post('/contatos/criar', [Contatos\CriarController::class, 'store'], AuthMiddleware::class)
+    ->put('/contatos', Contatos\AtualizarController::class, AuthMiddleware::class)
+    ->delete('/contatos', Contatos\DeleteController::class, AuthMiddleware::class)
 
-    ->get('/confirmar', [Notas\VisualizarController::class, 'confirmar'], AuthMiddleware::class)
-    ->post('/mostrar', [Notas\VisualizarController::class, 'mostrar'], AuthMiddleware::class)
-    ->get('/esconder', [Notas\VisualizarController::class, 'esconder'], AuthMiddleware::class)
+    ->get('/confirmar', [Contatos\VisualizarController::class, 'confirmar'], AuthMiddleware::class)
+    ->post('/mostrar', [Contatos\VisualizarController::class, 'mostrar'], AuthMiddleware::class)
+    ->get('/esconder', [Contatos\VisualizarController::class, 'esconder'], AuthMiddleware::class)
 
     ->run();
