@@ -62,7 +62,7 @@ $validacoes = flash()->get('validacoes');
 
 
         <div class="flex justify-end items-center">
-            <button class="btn btn-primary">salvar</button>
+            <button class="btn bg-lime-500">salvar</button>
         </div>
     </form>
 </div>

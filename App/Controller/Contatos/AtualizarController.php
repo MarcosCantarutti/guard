@@ -28,13 +28,15 @@ class AtualizarController
             return redirect('/contatos?id=' . request()->post('id'));
         }
 
+        $imagem = '';
+        if (isset($_FILES['imagem']['name']) && $_FILES['imagem']['name']) {
 
-        $dir = "images/";
-        $name = md5(rand());
-        $extension = pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION);
-        $imagem = "$dir$name.$extension";
-
-        move_uploaded_file($_FILES['imagem']['tmp_name'], __DIR__ . '/../public/' . $imagem);
+            $dir = "images/";
+            $name = md5(rand());
+            $extension = pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION);
+            $imagem = "$dir$name.$extension";
+            move_uploaded_file($_FILES['imagem']['tmp_name'], __DIR__ . '/../../../public/' . $imagem);
+        }
 
         Contato::update(request()->post('id'), request()->post('nome'), request()->post('observacao'), request()->post('telefone'), request()->post('email'), $imagem);
 

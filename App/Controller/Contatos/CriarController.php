@@ -31,7 +31,7 @@ class CriarController
         $extension = pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION);
         $imagem = "$dir$name.$extension";
 
-        move_uploaded_file($_FILES['imagem']['tmp_name'], __DIR__ . '/../public/' . $imagem);
+        move_uploaded_file($_FILES['imagem']['tmp_name'], __DIR__ . '/../../../public/' . $imagem);
 
         Contato::create(auth()->id, request()->post('nome'), request()->post('observacao'), request()->post('telefone'), request()->post('email'), $imagem);
 

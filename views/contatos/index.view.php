@@ -4,7 +4,9 @@ $contatoSelecionadoId = $_GET['id'] ?? null;
 
 ?>
 <div>
-    <?php require base_path('views/partials/_search.view.php'); ?>
+    <?php if (!$contatoSelecionadoId): ?>
+        <?php require base_path('views/partials/_search.view.php'); ?>
+    <?php endif; ?>
 </div>
 
 <!-- nova implementação , como exibir apenas um item ao clicar? -->
@@ -24,17 +26,22 @@ $contatoSelecionadoId = $_GET['id'] ?? null;
         <tbody>
             <?php foreach ($contatos as $key => $contato): ?>
                 <?php if ($contato->id == $contatoSelecionadoId): ?>
-                    <form action="/contatos" method="POST" id="form-atualizacao">
+                    <form action="/contatos" method="POST" id="form-atualizacao" enctype="multipart/form-data">
                         <input type="hidden" name="__method" value="PUT" />
                         <input type="hidden" name="id" value="<?= $contato->id; ?>" />
                         <label class="form-control w-full">
                             <div class="label">
-                                <span class="label-text">Avatar</span>
+                                <span class="label-text">Avatar atual</span>
                             </div>
-                            <input type="file" class="input input-bordered w-full p-2 bg-zinc-700" name='imagem'>
-                            <?php if (isset($validacoes['nome'])): ?>
-                                <div class="label text-xs text-error"><?= $validacoes['nome'][0]; ?></div>
-                            <?php endif; ?>
+                            <img src="<?= $contato->avatar; ?>" alt="" class="w-20 h-20 rounded-full object-cover mt-2">
+
+                        </label>
+                        <label class="form-control w-full pt-5">
+                            <div class="label">
+                                <span class="label-text">Novo Avatar</span>
+                            </div>
+                            <input type="file" class="input input-bordered w-full p-2 bg-zinc-700" name="imagem">
+
                         </label>
 
                         <label class="form-control w-full">
@@ -88,13 +95,13 @@ $contatoSelecionadoId = $_GET['id'] ?? null;
 
                 <?php endif; ?>
                 <?php if (!$contatoSelecionadoId): ?>
-                    <tr class="border-b cursor-pointer" onclick="window.location.href='/contatos?id=<?= $contato->id; ?><?= request()->get('pesquisar', '', '&pesquisar=') ?>'">
-                        <td class="px-4 py-2">avatar</td>
-                        <td class="px-4 py-2"><?= $contato->nome; ?><br><?= $contato->nome; ?></td>
-                        <td class="px-4 py-2"><?= formatarTelefone($contato->telefone); ?></td>
-                        <td class="px-4 py-2"><?= $contato->email; ?></td>
+                    <tr class="border-b cursor-pointer">
+                        <td class="px-4 py-2"><img class="w-20 h-20 object-center" src="./<?= $contato->avatar; ?>" alt="LOGO"></td>
+                        <td class="px-4 py-2"><?= $contato->nome; ?><br><?= $contato->contato()->observacao; ?></td>
+                        <td class="px-4 py-2"><?= formatarTelefone($contato->contato()->telefone); ?></td>
+                        <td class="px-4 py-2"><?= $contato->contato()->email; ?></td>
                         <td class="px-4 py-2 flex space-x-2">
-                            <button class="bg-lime-500 text-white px-4 py-2 rounded">Editar</button>
+                            <button class="bg-lime-500 text-white px-4 py-2 rounded" onclick="window.location.href='/contatos?id=<?= $contato->id; ?><?= request()->get('pesquisar', '', '&pesquisar=') ?>'">Editar</button>
 
                         </td>
                     </tr>

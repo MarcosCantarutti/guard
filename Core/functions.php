@@ -143,11 +143,11 @@ function env($key)
 
 function formatarTelefone($telefone)
 {
-    $telefone = preg_replace('/\D/', '', $telefone);
-    if (strlen($telefone) === 11) {
-        return preg_replace('/(\d{2})(\d{5})(\d{4})/', '($1) $2-$3', $telefone);
-    } elseif (strlen($telefone) === 10) {
-        return preg_replace('/(\d{2})(\d{4})(\d{4})/', '($1) $2-$3', $telefone);
+    $tel = preg_replace('/\D/', '', $telefone);
+    if (strlen($tel) === 11) {
+        return preg_replace('/(\d{2})(\d{5})(\d{4})/', '($1) $2-$3', $tel);
+    } elseif (strlen($tel) === 10) {
+        return preg_replace('/(\d{2})(\d{4})(\d{4})/', '($1) $2-$3', $tel);
     } else {
         return $telefone;
     }

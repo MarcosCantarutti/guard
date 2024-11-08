@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dracula">
+<html lang="en" data-theme="dracula" class="bg-zinc-900">
 
 <head>
     <meta charset="UTF-8">
@@ -10,7 +10,7 @@
     <title>Guard</title>
 </head>
 
-<body class="bg-zinc-900">
+<body>
     <div class="mx-auto max-w-screen-lg h-screen flex flex-col space-y-6 ">
         <?php require base_path('views/partials/_navbar.view.php'); ?>
 

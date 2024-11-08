@@ -23,13 +23,17 @@ class Contato
     {
         $DadosContato = [];
         if (session()->get('mostrar')) {
-            $DadosContato[] = decrypt($this->observacao);
-            $DadosContato[] = decrypt($this->telefone);
-            $DadosContato[] = decrypt($this->email);
+            $DadosContato = new \stdClass();
+            $DadosContato->observacao = decrypt($this->observacao);
+            $DadosContato->telefone = decrypt($this->telefone);
+            $DadosContato->email = decrypt($this->email);
             return $DadosContato;
         }
-
-        return  $DadosContato = ['***********', '***********', '***********'];;
+        $DadosContato = new \stdClass();
+        $DadosContato->observacao = '***********';
+        $DadosContato->telefone = '***********';
+        $DadosContato->email = '***********';
+        return  $DadosContato;
     }
 
     public static function all($filter = null)
@@ -58,9 +62,9 @@ class Contato
             params: [
                 'usuario_id' => $usuario_id,
                 'nome' => $nome,
-                'observacao' => $observacao,
-                'telefone' => $telefone,
-                'email' => $email,
+                'observacao' => encrypt($observacao),
+                'telefone' => encrypt($telefone),
+                'email' => encrypt($email),
                 'avatar' => $avatar,
                 'data_criacao' => date('Y-m-d H:i:s'),
             ]
@@ -101,9 +105,9 @@ class Contato
 
         $params = array_merge(
             ['nome' => $nome, 'id' => $id],
-            $observacao ? ['observacao' => $observacao] : [],
-            $telefone ? ['telefone' => $telefone] : [],
-            $email ? ['email' => $email] : [],
+            $observacao ? ['observacao' => encrypt($observacao)] : [],
+            $telefone ? ['telefone' => encrypt($telefone)] : [],
+            $email ? ['email' => encrypt($email)] : [],
             $avatar ? ['avatar' => $avatar] : []
         );
 
