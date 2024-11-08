@@ -4,13 +4,7 @@
     </div>
     <div class="flex-none">
         <ul class="menu menu-horizontal px-1">
-            <li>
-                <?php if (session()->get('mostrar')): ?>
-                    <a href="/esconder">🤫</a>
-                <?php else: ?>
-                    <a href="/confirmar">😀</a>
-                <?php endif; ?>
-            </li>
+
             <li>
                 <details>
                     <summary><?= auth()->nome; ?></summary>

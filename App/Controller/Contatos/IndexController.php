@@ -4,7 +4,6 @@
 namespace App\Controller\Contatos;
 
 use App\Models\Contato;
-use Core\Validacao;
 
 class IndexController
 {
