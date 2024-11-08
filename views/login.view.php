@@ -8,12 +8,17 @@ $validacoes = flash()->get('validacoes');
         </div>
     </div>
 
-    <div class="hero mr-40 bg-zinc-900 min-h-screen text-white">
+    <div class="hero mr-40 bg-zinc-900 min-h-screen text-white flex flex-col gap-20 items-center justify-start">
+        <div class="mt-10 mb-40 mr-20 self-end">Não tem uma conta? <a href="/registrar" class="text-lime-500 btn-link">Criar Conta</a></div>
+
         <div class="hero-content -mt-20">
+
+
+
             <form action="/login" method="post">
                 <div class="card">
                     <div class="card-body">
-                        <div class="card-title">Faça o seu login</div>
+                        <div class="card-title">Acessar Conta</div>
 
                         <?php require base_path('views/partials/_mensagem.view.php'); ?>
 
@@ -37,8 +42,7 @@ $validacoes = flash()->get('validacoes');
                         <?php endif; ?>
 
                         <div class="card-actions justify-end">
-                            <button class="btn btn-primary btn-block">Login</button>
-                            <a href="/registrar" class="btn btn-link">Quero me registrar</a>
+                            <button class="bg-lime-500 btn btn-block">Login</button>
                         </div>
                     </div>
 

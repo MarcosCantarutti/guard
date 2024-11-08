@@ -10,7 +10,7 @@
         <div class="hero-content -mt-20">
 
             <form action="/registrar" method="post">
-                <div class="text-right">Já tem uma conta?<a href="/login" class="btn btn-link">Acessar conta</a></div>
+                <div class="text-right">Já tem uma conta? <a href="/login" class="text-lime-500 btn-link">Acessar conta</a></div>
                 <div class="card">
                     <div class="card-body">
                         <?php
@@ -46,7 +46,7 @@
                         </label>
 
                         <div class="card-actions justify-end">
-                            <button class="btn btn-primary btn-block">Registrar</button>
+                            <button class="bg-lime-500 btn  btn-block">Registrar</button>
 
                         </div>
                         <?php if (isset($validacoes['name'])): ?>
